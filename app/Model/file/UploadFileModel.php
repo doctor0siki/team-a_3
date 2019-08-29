@@ -19,7 +19,13 @@ class UploadFileModel {
 	public function __construct(array $files) {
 		$this ->files = $files;
 	}
-	
+
+	/**
+	 * 保持しているファイルを書き込む。
+	 * 書き込み先はここ{@see UploadFileModel::SAVE_PATH}
+	 * 
+	 * @return array 書き込んだファイルの名前一覧。
+	 */
 	public function write(){
 		$executed_filename_list = array();
 		foreach ($this->files as $file){
