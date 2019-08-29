@@ -1,13 +1,13 @@
 <?php
 
-namespace Model;
+namespace Model\file;
 
 use Slim\Http\UploadedFile;
 
 class UploadFileModel {
 	
 	//TODO あんまよくない
-	const SAVE_PATH = '/../../upload_temp/';
+	const SAVE_PATH = '/../../../upload_temp/';
 	
 	private $files;
 

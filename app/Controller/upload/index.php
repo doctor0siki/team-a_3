@@ -1,11 +1,13 @@
 <?php
+
+use Model\file\UploadFileModel;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
 /*
  * アップロード画面初期表示
  */
-$app->get('/upload/', function (Response $response) {
+$app->get('/upload/', function (Request $request, Response $response) {
 	$data = [];
 
 	return $this->view->render($response, 'upload/index.twig', $data);
@@ -19,7 +21,7 @@ $app->get('/upload/', function (Response $response) {
 $app->post('/upload/', function (Request $request, Response $response) {
 	$data = [];
 	
-	$uploadedFileModel = new \Model\UploadFileModel($request->getUploadedFiles());
+	$uploadedFileModel = new UploadFileModel($request->getUploadedFiles());
 	
 	$data['file_name_list'] = $uploadedFileModel->write();
 	
