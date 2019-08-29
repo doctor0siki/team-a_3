@@ -1,0 +1,35 @@
+{#レイアウトの継承#}
+{% extends "layout/layout.twig" %}
+{#htmlのタイトル#}
+{% block title %}{% endblock %}
+{#スタイルシートの指定#}
+{% block header_scripts_add %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="page-header text center">
+        <ul id="nav" class="list-inline">
+            <li class="list-inline-item" >
+                <a class="nav-link" href="/mypage/">ホーム</a>
+            </li>
+            <li class="list-inline-item" >
+                <a class="nav-link" href="/edit/">投稿動画</a>
+            </li>
+            <li class="list-inline-item" >
+                <p class="nav-link">ストック</p>
+            </li>
+          </ul>
+
+
+    </div>
+    <h3>ストックした動画</h3>
+        <div class="page-header text center d-flex flex-wrap justify-content-around">
+          {% for item in range(0,10) %}
+              <img src="https://picsum.photos/500/300" >
+          {% endfor %}
+
+
+        </div>
+    {# ここに↑メニュー追加していく #}
+
+{% endblock %}

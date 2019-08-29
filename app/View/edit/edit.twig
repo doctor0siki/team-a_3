@@ -1,0 +1,26 @@
+{#レイアウトの継承#}
+{% extends "layout/layout.twig" %}
+{#htmlのタイトル#}
+{% block title %}投稿動画一覧{% endblock %}
+{#スタイルシートの指定#}
+{% block header_scripts_add %}
+{% endblock %}
+
+{% block page_content %}
+    <div class="page-header text center">
+        <ul id="nav" class="list-inline">
+            <li class="list-inline-item" >
+                <a class="nav-link" href="/mypage/">ホーム</a>
+            </li>
+            <li class="list-inline-item" >
+                投稿動画
+            </li>
+            <li class="list-inline-item" >
+                <a class="nav-link" href="/stock/">ストック</a>
+            </li>
+          </ul>
+        <h2>説明</h2>
+    </div>
+    {# ここに↑メニュー追加していく #}
+
+{% endblock %}
