@@ -11,7 +11,8 @@ $app->get('/upload/', function (Request $request, Response $response) {
 	$data = [];
 
 	return $this->view->render($response, 'upload/index.twig', $data);
-});
+})
+->setName('upload_init');
 
 /*
  * 動画アップロードの受け口。
@@ -26,4 +27,5 @@ $app->post('/upload/', function (Request $request, Response $response) {
 	$data['file_name_list'] = $uploadedFileModel->write();
 	
 	return $this->view->render($response, 'upload/index.twig', $data);
-});
+})
+->setName('upload_post');

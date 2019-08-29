@@ -11,7 +11,7 @@
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
 
-<form action="/upload/" enctype="multipart/form-data" method="post">
+<form action="{{ path_for('upload_post') }}" enctype="multipart/form-data" method="post">
 	<label>画像/動画アップロード</label>
 	<input type="file" name="up_file">
 	<br>
