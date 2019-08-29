@@ -3,8 +3,3 @@
 vendor
 
 .DS_Store
-
-.node-version
-node_modules
-
-public/assets/css/dist
