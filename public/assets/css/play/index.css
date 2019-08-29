@@ -1,0 +1,30 @@
+.play-container{
+    width: 100%;
+    padding: 10px 20px 50px;
+}
+.play-prime-info{
+    font-size: 14px;
+    vertical-align: middle;
+}
+.play-prime-info-title{
+    font-size: 24px;
+}
+.play-video-primary-info{
+    vertical-align: bottom;
+}
+.play-user-info{
+    margin-top: 10px;
+}
+.play-user-info-icon{
+    width: 80px;
+    height: 80px;
+    border-radius: 40px;
+}
+.play-user-name{
+    margin-left: 20px;
+    font-size: 26px;
+}
+.play-shout, .play-hand_wave{
+    height: 250px;
+    overflow: scroll;
+}
