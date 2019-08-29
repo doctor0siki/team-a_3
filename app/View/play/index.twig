@@ -1,0 +1,32 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}Play{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+    <link rel="stylesheet" href="/assets/css/paly/index.css">
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+    <div class="box">
+        <div class="play-movie">
+            <img src="http://picsum.photos/1000/750" alt="動画タイトル" style="width: 1000px; height: 750px;">
+            <div class="play-video-primary-info row">
+                <div class="text-left col-8">タイトル</div>
+                <div class="col-2">
+                    <img src="/assets/images/public/file.svg" alt="" style="width: 30px; height: 30px;">
+                    <span>ストック</span>
+                </div>
+                <div class="col-2">
+                    <img src="/assets/images/public/GoodJob.svg" alt="" style="width: 30px; height: 30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
