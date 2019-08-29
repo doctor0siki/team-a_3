@@ -13,6 +13,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/register/">会員登録</a>
                 </li>
+
             {% else %}
                 {# ここに↓メニュー追加していく #}
                 {# 一覧ページを出すサンプルURLです #}
@@ -30,8 +31,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/resign/">退会</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mypage/">マイページ</a>
+                </li>
             {% endif %}
         </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
         {# ログインしてたらユーザー名を出力する#}
         {% if session.user_info.name %}
             <ul class="navbar-nav text-right">
