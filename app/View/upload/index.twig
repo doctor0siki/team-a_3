@@ -1,0 +1,29 @@
+{#レイアウトを継承します#}
+{% extends "layout/layout.twig" %}
+
+{#HTMLのタイトルを定義します。#}
+{% block title %}TOP{% endblock %}
+
+{# 適用させたいスタイルシートのパスを指定します #}
+{% block header_scripts_add %}
+{% endblock %}
+
+{#ここから表示したい情報を記載します。#}
+{% block page_content %}
+
+<form action="/upload/" enctype="multipart/form-data" method="post">
+	<label>画像/動画アップロード</label>
+	<input type="file" name="up_file">
+	<br>
+	<input type="submit" value="アップロード">
+</form>
+	
+	
+{% for file_name in file_name_list %}
+	{{ file_name }}をアップロードしました。
+{% endfor %}
+	
+{% endblock %}
+
+{#共通フッタとして追記したい情報を記載します。#}
+{% block footer_scripts_add %}{% endblock %}
