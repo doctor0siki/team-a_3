@@ -11,7 +11,8 @@ $app->get('/post_video', function (Request $request, Response $response) {
 
     // Render index view
     return $this->view->render($response, 'postVideo/index.twig', $data);
-});
+})
+->setName('post_video');
 
 $app->post('/post_video/upload', function (Request $request, Response $response) {
 

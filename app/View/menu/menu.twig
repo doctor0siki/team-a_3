@@ -39,6 +39,13 @@
                 </form>
             </li>
         </ul>
+
+        {% if session.user_info.name and current_path() == path_for('mypage') %}
+            <ul class="navbar-nav text-right">
+                <a class="nav-link" href="{{ path_for('post_video') }}">投稿</a>
+            </ul>
+        {% endif %}
+        
         {# ログインしてたらユーザー名を出力する#}
         {% if session.user_info.name %}
             <ul class="navbar-nav text-right">
