@@ -1,3 +1,7 @@
+{% block header_scripts_add %}
+    <link rel="stylesheet" href="/assets/css/menu/index.css">
+{% endblock %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">TOP</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
@@ -13,6 +17,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/register/">会員登録</a>
                 </li>
+
             {% else %}
                 {# ここに↓メニュー追加していく #}
                 {# 一覧ページを出すサンプルURLです #}
@@ -30,8 +35,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/resign/">退会</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/mypage/">マイページ</a>
+                </li>
             {% endif %}
         </ul>
+        <form class="menu-search-window" action="/result">
+          <input class="menu-search-window_text-field" type="search" placeholder="Search" aria-label="Search" name="search">
+          <button class="menu-search-window_btn" type="submit">
+              <img class="menu-search-window_btn-image" src="/assets/images/public/search.svg" alt="検索">
+          </button>
+        </form>
         {# ログインしてたらユーザー名を出力する#}
         {% if session.user_info.name %}
             <ul class="navbar-nav text-right">
