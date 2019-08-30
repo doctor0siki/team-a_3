@@ -5,7 +5,11 @@ use Slim\Http\Response;
 use Model\Dao\Video;
 
 // TOPページのコントローラ
-$app->get('/result', function (Request $request, Response $response) {
+$app->get('/result', function (Request $request, Response $response) use($app) {
+
+	if(\Model\login\LoginUtil::isNotLogin($this->session)){
+		return $response->withRedirect($app->getContainer()->get('router')->pathFor('top'));
+	}
 
     $query = $request->getQueryParams();
     $video = new Video($this->db);
