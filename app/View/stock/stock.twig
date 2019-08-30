@@ -23,16 +23,22 @@
 
     </div>
     <h3>ストックした動画</h3>
+    <a class ="nav-link" href="http://team-a1.2021.local/">
+      {% for item in range(0,1) %}
     <div class="box">
       <div class="d-flex  justify-content-around">
 
           {% for item in range(0,4) %}
+
         <div class="my-5 mx-2">
           <div class="card">
-            <a href="#">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/MN45ZeSP4Dg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </a>
+
+
+            <img src="https://picsum.photos/300/450" class="card-img-top" alt="動画タイトル" style="height: 300px; width: 450px;" >
+
+
           </div>
+
 
 
           <div class=" card-body d-flex ">
@@ -45,10 +51,13 @@
               </div>
               </div>
               </div>
+
               </div>
           {% endfor %}
         </div>
       </div>
+      </a>
+      {% endfor %}
     {# ここに↑メニュー追加していく #}
 
 {% endblock %}
