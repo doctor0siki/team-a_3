@@ -6,7 +6,11 @@ use Model\Dao\User;
 
 
 // 会員登録ページコントローラ
-$app->get('/stock/', function (Request $request, Response $response) {
+$app->get('/stock/', function (Request $request, Response $response) use($app) {
+
+	if(\Model\login\LoginUtil::isNotLogin($this->session)){
+		return $response->withRedirect($app->getContainer()->get('router')->pathFor('top'));
+	}
 
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
