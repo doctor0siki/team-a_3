@@ -18,4 +18,5 @@ $app->get('/mypage/', function (Request $request, Response $response) use($app) 
     // Render index view
     return $this->view->render($response, 'mypage/home.twig', $data);
 
-});
+})
+->setName('mypage');

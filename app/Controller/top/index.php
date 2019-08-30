@@ -12,4 +12,5 @@ $app->get('/', function (Request $request, Response $response) {
 
     // Render index view
     return $this->view->render($response, 'top/index.twig', $data);
-});
+})
+->setName('top');

@@ -18,12 +18,16 @@ $app->get('/post_video', function (Request $request, Response $response) use($ap
 })
 ->setName('post_video');
 
+$app->post('/post_video/upload', function (Request $request, Response $response) {
+})
+->setName('post_video');
+
 $app->post('/post_video/upload', function (Request $request, Response $response) use($app) {
 
 	if(\Model\login\LoginUtil::isNotLogin($this->session)){
 		return $response->withRedirect($app->getContainer()->get('router')->pathFor('top'));
 	}
-
+	
     $session = $this->session["user_info"];
     $body = $request->getParsedBody();
     $file = $request->getUploadedFiles();
@@ -32,3 +36,4 @@ $app->post('/post_video/upload', function (Request $request, Response $response)
 
     return $response->withRedirect('/edit');
 })->setName("upload");
+

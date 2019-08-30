@@ -15,7 +15,7 @@
         <div class="play-movie row">
             <div class="play-video-holder col-8">
                 <div class="play-video-place">
-                    <video src={{video.path}} class="play-video-item" id="js-video" controls autoplay muted height="600px" width="100%" alt="動画タイトル"></iframe>
+                    <video src="/assets/videos/IMG_0658.MOV" class="play-video-item" id="js-video" controls autoplay muted height="600px" alt="動画タイトル"></video>
                 </div>
                 <div class="play-video-primary-info row mt-3 pb-1 border-bottom">
                     <div class="text-left col-8 play-prime-info-title">タイトルタイトルタイトルタイトルタイトル</div>
@@ -34,20 +34,20 @@
                 </div>
                 <h2 class="mt-5">概要</h2>
                 <p>
-                    {{ video.description | nl2br }}
+                    {{ discription | nl2br }}
                 </p>
             </div>
             <div class="col-4">
                 <h3>掛け声</h3>
                 <div class="play-shout">
-                    {% for item in explanation_shout %}
-                        {% include 'play/explanation.twig' with{'id' : item.id, 'time' : item.time, 'value' : item.text}  %}
+                    {% for i in range(1,20) %}
+                        {% include 'play/explanation.twig' with{'id' : i, 'time' : '00:' ~ '%02s' | format(i), 'value' : 'やはは'}  %}
                     {% endfor %}
                 </div>
                 <h3 class="mt-3">ペンライトの振り方</h3>
                 <div class="play-hand_wave">
-                    {% for item in explanation_hand_wave %}
-                        {% include 'play/explanation.twig' with{'id' : item.id, 'time' : item.time, 'value' : item.text}  %}
+                    {% for i in range(1,20) %}
+                        {% include 'play/explanation.twig' with{'id' : i, 'time' : '10:10', 'value' : 'やはは'}  %}
                     {% endfor %}
                 </div>
             </div>
