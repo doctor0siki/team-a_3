@@ -4,6 +4,7 @@ namespace Model\Dao;
 
 use Model\Dao\Artist;
 use Model\Dao\Music;
+use Model\Dao\Explanation;
 
 /**
  * Class Video
@@ -61,15 +62,37 @@ class Video extends Dao
 
         $matchStr = implode(", ", $matchList);
         $sql = "select v.id as id, m.name as music_name, a.name as artist_name, u.name as user_name, v.path as path, v.description as description "
-            ."from video v "
-            ."inner join music m on v.music_id = m.id "
-            ."inner join artist a on v.artist_id = a.id "
-            ."inner join user u on v.user_id = u.id "
-            ."where v.music_id in ({$matchStr})";
+            . "from video v "
+            . "inner join music m on v.music_id = m.id "
+            . "inner join artist a on v.artist_id = a.id "
+            . "inner join user u on v.user_id = u.id "
+            . "where v.music_id in ({$matchStr})";
         $statement = $this->db->prepare($sql);
         $statement->execute();
 
         return $statement->fetchAll();
+    }
 
+    /**
+     * create Function
+     *
+     * @param $session
+     * @param $body
+     * @param $file
+     */
+    public function create($session, $body, $file)
+    {
+        dd($session, $body, $file);
+        $path = "";
+
+        $videoData = [
+            "user_id" => $session["id"],
+            "artist_id" => $body["artist_id"],
+            "music_id" => $body["music_id"],
+            "path" => $path,
+            "description" => $body["description"]
+        ];
+
+        $this->insert($videoData);
     }
 }

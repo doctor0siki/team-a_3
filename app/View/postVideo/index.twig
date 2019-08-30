@@ -43,6 +43,9 @@
                         <div class="col-3">
                             <input type="time"name="vtime" id="postVideo_shout_time" class="form-control">
                         </div>
+                    </div>
+                    <div class="row align-items-center mb-3">
+                        <label class="col-auto">曲名：</label>
                         <div class="col">
                             <input type="text" name="vtext" id="postVideo_shout_value" class="form-control" placeholder="掛け声" list="list_voice">
                             <datalist id="list_voice">
@@ -72,15 +75,36 @@
                             </datalist>
                         </div>
                     </div>
-                    <p><span id="ptime"></span><span id="ptext"></p>
-                    <div class="text-right">
-                        <button type="button" class="btn btn-primary" onclick="onButtonClick2()">追加</button>
+                    <div>ペンライトの振り方</div>
+                    <div class="mb-5">
+                        <div class="row mb-3">
+                            <div class="col-3">
+                                <form name="pen_time">
+                                    <input type="time"name="ptime" class="form-control">
+                                </form>
+                            </div>
+                            <div class="col">
+                                <form name="pen">
+                                    <input type="text" name="pen_text" class="form-control" placeholder="ペンライトの振り方" list="list_pen">
+                                </form>
+                                <datalist id="list_pen">
+                                    <option value="前後に振る">
+                                    <option value="横に振る">
+                                    <option value="手首で回す">
+                                </datalist>
+                            </div>
+                        </div>
+                        <p><span id="ptime"></span><span id="ptext"></p>
+                        <div class="text-right">
+                            <button type="button" class="btn btn-primary" onclick="onButtonClick2()">追加</button>
+                        </div>
                     </div>
                     <div class="post_video-list" id="js-postVideo-hand"></div>
 
                 </div>
             </div>
-        </div>
+            <button type="submit" class="btn btn-primary">投稿</button>
+        </form>
     </div>
 {% endblock %}
 
@@ -89,7 +113,4 @@
 <script type="text/javascript" language="javascript" src="/assets/js/postVideo/index.js">
 
 </script>
-
-
-
 {% endblock %}
