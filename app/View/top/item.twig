@@ -1,17 +1,17 @@
 {% block top_movie_item %}
     <div class="card" style="width: 330px;">
-        <a href="/play/{{ video_id }}">
+        <a href="/play/{{ item["id"] }}">
             <img src="https://picsum.photos/33/16" class="card-img-top c-video-list_item" alt="動画タイトル">
             <div class="card-body d-flex">
-                <object><a href="/mypage/{{user_id}}">
-                    <img src="https://picsum.photos/200/200" alt="ユーザーアイコン" class="rounded-circle" id="js-top-video-link"  data-url="/mypage/{{user_id}}" style="width: 80px; height: 80px; object-fit: contain;">
+                <object><a href="/mypage/">
+                    <img src="https://picsum.photos/200/200" alt="ユーザーアイコン" class="rounded-circle" id="js-top-video-link"  data-url="/mypage/" style="width: 80px; height: 80px; object-fit: contain;">
                 </a></object>
                 <div class="ml-3">
                     <div class="mt-3">
-                      <span>曲名</span>/<span>アーティスト</span>
+                      <span>{{ item["music_name"] }}</span>/<span>{{ item["artist_name"] }}</span>
                     </div>
                     <div>
-                      <object><a href="/mypage/{{user_id}}">サツマイモご飯</a></object>
+                      <object><a href="/mypage/">{{ item["user_name"] }}</a></object>
                     </div>
                 </div>
             </div>

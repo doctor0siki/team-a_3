@@ -20,32 +20,25 @@
 
             {% else %}
                 {# ここに↓メニュー追加していく #}
-                {# 一覧ページを出すサンプルURLです #}
                 <li class="nav-item">
-                    <a class="nav-link" href="/item/list/">一覧ページ</a>
+                    <a class="nav-link" href="/mypage/">マイページ</a>
                 </li>
-                {# サンプルとして詳細ページの商品番号1番を出すURLです#}
-                <li class="nav-item">
-                    <a class="nav-link" href="/item/detail/1">詳細ページ</a>
-                </li>
-                {# ここに↑メニュー追加していく #}
                 <li class="nav-item">
                     <a class="nav-link" href="/logout/">ログアウト</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/resign/">退会</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/mypage/">マイページ</a>
-                </li>
             {% endif %}
+            <li class="nav-item">
+                <form class="menu-search-window" action="{{ path_for('result') }}" method="get">
+                    <input class="menu-search-window_text-field" type="search" placeholder="Search" aria-label="Search" name="search">
+                    <button class="menu-search-window_btn" type="submit">
+                        <img class="menu-search-window_btn-image" src="/assets/images/public/search.svg" alt="検索">
+                    </button>
+                </form>
+            </li>
         </ul>
-        <form class="menu-search-window" action="/result">
-          <input class="menu-search-window_text-field" type="search" placeholder="Search" aria-label="Search" name="search">
-          <button class="menu-search-window_btn" type="submit">
-              <img class="menu-search-window_btn-image" src="/assets/images/public/search.svg" alt="検索">
-          </button>
-        </form>
         {# ログインしてたらユーザー名を出力する#}
         {% if session.user_info.name %}
             <ul class="navbar-nav text-right">
