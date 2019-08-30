@@ -28,3 +28,16 @@
     height: 250px;
     overflow: scroll;
 }
+.play-video-place{
+    height: 600px;
+    text-align: center;
+    background-color: black;
+}
+.play-video-item{
+    display: inline;
+    height: 100%;
+    object-fit: contain;
+}
+.play-play_explanation-time{
+    color: #065FD4;
+}

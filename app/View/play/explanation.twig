@@ -1,5 +1,5 @@
 {% block play_explanation %}
     <div class="play-play_explanation">
-        <span id="js-video_{{ id }}">{{ time }}</span> <span>{{ value }}</span>
+        <span id="js-video_{{ id }}" class="play-play_explanation-time" onclick="toPlayBack(this)">{{ time }}</span> <span>{{ value }}</span>
     </div>
 {% endblock %}
