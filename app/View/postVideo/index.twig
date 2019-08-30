@@ -10,11 +10,11 @@
 
 {#ここから表示したい情報を記載します。#}
 {% block page_content %}
-    <div class="box">
+    <div class="box py-5">
         <form action="{{ path_for('upload') }}" method="post" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-6">
-                    <input type="file" class="form-control-file" name="movie" multiple accept="video/*">
+                    <input type="file" class="form-control-file mb-3" name="movie" multiple accept="video/*">
                     <div class="row align-items-center mb-3">
                         <label class="col-auto">アーティスト：</label>
                         <div class="col">
@@ -37,36 +37,72 @@
                     <div class="mb-5">
                         <div class="row mb-3">
                             <div class="col-3">
-                                <input type="time" name="time_shout" class="form-control">
+                                <form name="voice_time"  >
+                                    <input type="time" name="vtime" class="form-control">
+                                </form>
                             </div>
                             <div class="col">
-                                <input type="text" name="shout" class="form-control" placeholder="掛け声">
+                                <form name="voice">
+                                    <input type="text" name="vtext" class="form-control" placeholder="掛け声" list="list_voice">
+                                </form>
+                                <datalist id="list_voice">
+                                    <option value="シャウト">
+                                    <option value="曲を歌う">
+                                    <option value="合いの手">
+                                </datalist>
                             </div>
                         </div>
+                        <p><span id="vtime"></span><span id="vtext"></span></p>
                         <div class="text-right">
-                            <button type="button" class="btn btn-primary">追加</button>
+                            <button type="button" class="btn btn-primary" onclick="onButtonClick1()" >追加</button>
                         </div>
                     </div>
                     <div>ペンライトの振り方</div>
                     <div class="mb-5">
                         <div class="row mb-3">
                             <div class="col-3">
-                                <input type="time" name="time_shake" class="form-control">
+                                <form name="pen_time">
+                                    <input type="time"name="ptime" class="form-control">
+                                </form>
                             </div>
                             <div class="col">
-                                <input type="text" name="shake" class="form-control" placeholder="ペンライトの振り方">
+                                <form name="pen">
+                                    <input type="text" name="pen_text" class="form-control" placeholder="ペンライトの振り方" list="list_pen">
+                                </form>
+                                <datalist id="list_pen">
+                                    <option value="前後に振る">
+                                    <option value="横に振る">
+                                    <option value="手首で回す">
+                                </datalist>
                             </div>
                         </div>
+                        <p><span id="ptime"></span><span id="ptext"></p>
                         <div class="text-right">
-                            <button type="button" class="btn btn-primary">追加</button>
+                            <button type="button" class="btn btn-primary" onclick="onButtonClick2()">追加</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">送信</button>
+            <button type="submit" class="btn btn-primary">投稿</button>
         </form>
     </div>
 {% endblock %}
 
 {#共通フッタとして追記したい情報を記載します。#}
-{% block footer_scripts_add %}{% endblock %}
+{% block footer_scripts_add %}
+<script type="text/javascript" language="javascript">
+function onButtonClick1() {
+      console.log("111");
+      const t1=document.voice_time.vtime.value;
+      document.getElementById("vtime").textContent=t1;
+      const t2=document.voice.vtext.value;
+      document.getElementById("vtext").textContent=t2;
+    }
+    function onButtonClick2() {
+      const t4=document.pen.pen_text.value;
+      document.getElementById("ptext").textContent=t4;
+      const t3=document.pen_time.ptime.value;
+      document.getElementById("ptime").textContent=t3;
+    }
+</script>
+{% endblock %}
