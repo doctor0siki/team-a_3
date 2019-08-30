@@ -51,25 +51,24 @@ class UploadLogic {
 	 *
 	 *
 	 * @return array 登録結果リスト。ファイル名とビデオIDが入っている。構造は以下のような感じ。
-	 * 'uploaded'
-	 *   => リストインデックス
+	 *   リストインデックス
 	 *      => 'file_name' => value
 	 *      => 'video_id' => value
 	 * @throws \Exception
 	 */
-	public function register( array $param ) {
-		$result = [ 'uploaded' => [] ];
-		foreach ( $param['files'] as $file ) {
+	public function register( array $info, array $files ) {
+		$result = [];
+		foreach ( $files as $file ) {
 			// 今回は動画ファイルをサーバ上に置いとく
 			$file_name = FileUtil::write( $file );
-			$insert_data = $param['base'];
+			$insert_data = $info['base'];
 			// todo フルパスにする？
 			$insert_data['path'] = $file_name;
 			$video_id  = $this->video_dao->insert( $insert_data );
 			if ( $video_id ) {
-				$this->registerExplanation( $param );
-				$result['uploaded'][]['file_name'] = $file_name;
-				$result['uploaded'][]['video_id']  = $video_id;
+				$this->registerExplanation($video_id, $info );
+				$result[]['file_name'] = $file_name;
+				$result[]['video_id']  = $video_id;
 			} else {
 				throw new \Exception( '投稿に失敗しました。' );
 			}
@@ -78,8 +77,9 @@ class UploadLogic {
 		return $result;
 	}
 
-	private function registerExplanation( array $param ) {
+	private function registerExplanation($video_id,  array $param ) {
 		foreach ( $param['explanations'] as $explanation ) {
+			$explanation['video_id'] = $video_id; 
 			$this->explanation_dao->insert( $explanation );
 		}
 	}
