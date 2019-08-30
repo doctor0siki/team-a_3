@@ -6,7 +6,7 @@ use Model\Dao\User;
 
 
 // 会員登録ページコントローラ
-$app->get('/mypage/{id}', function (Request $request, Response $response) {
+$app->get('/mypage/', function (Request $request, Response $response) {
 
     //GETされた内容を取得します。
     $data = $request->getQueryParams();
