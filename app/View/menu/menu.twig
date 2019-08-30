@@ -1,3 +1,7 @@
+{% block header_scripts_add %}
+    <link rel="stylesheet" href="/assets/css/menu/index.css">
+{% endblock %}
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="/">TOP</a>
     <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#Navber" aria-controls="Navber" aria-expanded="false" aria-label="ナビゲーションの切替">
@@ -36,9 +40,11 @@
                 </li>
             {% endif %}
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="menu-search-window" action="/result">
+          <input class="menu-search-window_text-field" type="search" placeholder="Search" aria-label="Search" name="search">
+          <button class="menu-search-window_btn" type="submit">
+              <img class="menu-search-window_btn-image" src="/assets/images/public/search.svg" alt="検索">
+          </button>
         </form>
         {# ログインしてたらユーザー名を出力する#}
         {% if session.user_info.name %}
