@@ -4,7 +4,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 // TOPページのコントローラ
-$app->get('/play', function (Request $request, Response $response) {
+$app->get('/play/{id}', function (Request $request, Response $response) {
 
     $data = [];
     $data['discription']='アーティスト：初音ミク

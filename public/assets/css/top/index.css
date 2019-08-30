@@ -1,0 +1,6 @@
+.c-video-list_item{
+    box-sizing: border-box;
+    height: 160px;
+    width: 330px;
+    object-fit: contain;
+}

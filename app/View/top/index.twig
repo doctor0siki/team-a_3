@@ -15,12 +15,10 @@
       <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-around">
           {% for item in range(0,10) %}
             <div class="my-5 mx-2">
-              {% include 'top/item.twig' %}
+                {% include 'top/item.twig' with{ 'video_id' : video_id } %}
             </div>
           {% endfor %}
-          <div class="my-5 mx-2" style="width: 330px;">
-
-          </div>
+          <div class="my-5 mx-2" style="width: 330px;"></div>
       </div>
     </div>
 {% endblock %}
