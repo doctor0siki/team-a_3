@@ -33,7 +33,8 @@ class UploadLogic {
 	/**
 	 * アップロードされた動画を登録する。
 	 *
-	 * @param array $param 本当はDTOにする方が良いけど、ハッカソンなのでまあ。
+	 * @param array $info 本当はDTOにする方が良いけど、ハッカソンなのでまあ。
+	 * @param array $files {@see Psr\Http\Message\UploadedFileInterface}の配列。
 	 * 'upload_data'
 	 *   => base
 	 *      => user_id => ユーザID
