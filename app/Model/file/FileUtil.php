@@ -4,10 +4,10 @@ namespace Model\file;
 
 use Slim\Http\UploadedFile;
 
-class UploadFileModel {
+class FileUtil {
 	
 	//TODO あんまよくない
-	const SAVE_PATH = '/../../../upload_temp/';
+	const SAVE_PATH = '/../../../public/assets/videos';
 	
 	private $files;
 

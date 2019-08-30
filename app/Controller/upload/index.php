@@ -1,6 +1,6 @@
 <?php
 
-use Model\file\UploadFileModel;
+use Model\file\FileUtil;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -22,9 +22,9 @@ $app->get('/upload/', function (Request $request, Response $response) {
 $app->post('/upload/', function (Request $request, Response $response) {
 	$data = [];
 	
-	$uploadedFileModel = new UploadFileModel($request->getUploadedFiles());
+	$util = new FileUtil($request->getUploadedFiles());
 	
-	$data['file_name_list'] = $uploadedFileModel->write();
+	$data['file_name_list'] = $util->write();
 	
 	return $this->view->render($response, 'upload/index.twig', $data);
 })
