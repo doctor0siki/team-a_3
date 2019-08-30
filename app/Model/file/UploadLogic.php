@@ -7,8 +7,7 @@ class UploadLogic {
 	private $video_dao;
 	private $music_dao;
 	private $artist_dao;
-	private $shout_dao;
-	private $action_dao;
+	private $explanation_dao;
 
 	/**
 	 * UploadLogic constructor.
@@ -16,21 +15,18 @@ class UploadLogic {
 	 * @param $video_dao \Model\Dao\Video
 	 * @param $music_dao \Model\Dao\Music
 	 * @param $artist_dao \Model\Dao\Artist
-	 * @param $shout_dao
-	 * @param $action_dao
+	 * @param $explanation_dao \Model\Dao\Explanation
 	 */
 	public function __construct(
 		$video_dao,
 		$music_dao,
 		$artist_dao,
-		$shout_dao,
-		$action_dao
+		$explanation_dao
 	) {
 		$this->video_dao  = $video_dao;
 		$this->music_dao  = $music_dao;
 		$this->artist_dao = $artist_dao;
-		$this->shout_dao  = $shout_dao;
-		$this->action_dao = $action_dao;
+		$this->explanation_dao  = $explanation_dao;
 	}
 
 
@@ -58,8 +54,7 @@ class UploadLogic {
 			if ( $video_id ) {
 				$this->music_dao->insert( [] );
 				$this->artist_dao->insert( [] );
-				$this->shout_dao->insert( [] );
-				$this->action_dao->insert( [] );
+				$this->explanation_dao->insert([]);
 				$result['uploaded'][]['file_name'] = $file_name;
 				$result['uploaded'][]['video_id'] = $video_id;
 			} else {
