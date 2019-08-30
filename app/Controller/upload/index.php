@@ -1,6 +1,7 @@
 <?php
 
 use Model\Dao\Artist;
+use Model\Dao\Explanation;
 use Model\Dao\Music;
 use Model\Dao\Video;
 use Model\file\UploadLogic;
@@ -24,15 +25,13 @@ $app->get('/upload/', function (Request $request, Response $response) {
  */
 $app->post('/upload/', function (Request $request, Response $response) {
 	$data = [];
-	
 	// todo 残りのDAO作らないとね
-	$data['file_name_list'] = (new UploadLogic(
+	$data['uploaded_info'] = (new UploadLogic(
 		new Video($this->db),
 		new Music($this->db),
 		new Artist($this->db),
-		null,
-		null
-	))->register($request->getUploadedFiles());
+		new Explanation($this->db)
+	))->register($request->getParams(),$request->getUploadedFiles());
 	
 	return $this->view->render($response, 'upload/index.twig', $data);
 })
