@@ -1,6 +1,9 @@
 <?php
 
-use Model\file\FileUtil;
+use Model\Dao\Artist;
+use Model\Dao\Music;
+use Model\Dao\Video;
+use Model\file\UploadLogic;
 use Slim\Http\Request;
 use Slim\Http\Response;
 
@@ -22,9 +25,14 @@ $app->get('/upload/', function (Request $request, Response $response) {
 $app->post('/upload/', function (Request $request, Response $response) {
 	$data = [];
 	
-	$util = new FileUtil($request->getUploadedFiles());
-	
-	$data['file_name_list'] = $util->write();
+	// todo 残りのDAO作らないとね
+	$data['file_name_list'] = (new UploadLogic(
+		new Video($this->db),
+		new Music($this->db),
+		new Artist($this->db),
+		null,
+		null
+	))->register($request->getUploadedFiles());
 	
 	return $this->view->render($response, 'upload/index.twig', $data);
 })
