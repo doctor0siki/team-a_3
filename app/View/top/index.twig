@@ -13,9 +13,9 @@
 {% block page_content %}
     <div class="box">
       <div class="d-flex flex-wrap bd-highlight mb-3 justify-content-around">
-          {% for item in range(0,10) %}
+          {% for item in list %}
             <div class="my-5 mx-2">
-                {% include 'top/item.twig' with{ 'video_id' : video_id } %}
+                {% include 'top/item.twig' with{ 'item' : item } %}
             </div>
           {% endfor %}
           <div class="my-5 mx-2" style="width: 330px;"></div>
